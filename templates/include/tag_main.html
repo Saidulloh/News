@@ -1,0 +1,66 @@
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        {% for i in news_tags_id %}
+            <div class="col-lg-6">
+                <div class="d-flex mb-3">
+                    <img src="{{i.image.url}}" style="width: 100px; height: 100px; object-fit: cover;">
+                    <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
+                        <a class="h6 m-0" href="{% url 'post' i.id%}">{{i.title}}</a>
+                    </div>
+                </div> 
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    <div class="mb-3">
+        <a href=""><img class="img-fluid w-100" src="{% static 'assets/img/ads-700x70.jpg' %}" alt=""></a>
+    </div>
+
+    <!-- News With Sidebar Start -->
+    <div class="container-fluid py-3">
+        <div class="container">
+            <div class="row">
+                <!-- Tags Start -->
+                <div class="pb-3">
+                    <div class="bg-light py-2 px-4 mb-3">
+                        <h3 class="m-0">Tags</h3>
+                    </div>
+                    <div class="d-flex flex-wrap m-n1">
+                        {% for tag in news_tags %}
+                        <a href="{% url 'show_tags_id' tag.id %}" class="btn btn-sm btn-outline-secondary m-1">{{tag}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Tags End -->
+            </div>
+        </div>
+    </div>
+    <!-- News With Sidebar End -->
+
+
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span class="fa fa-angle-double-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+    </div>

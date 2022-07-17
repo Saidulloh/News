@@ -1,0 +1,35 @@
+<div class="col-lg-4">
+    <!-- Social Follow Start -->
+    <div class="pb-3">
+        <div class="bg-light py-2 px-4 mb-3">
+            <h3 class="m-0">Follow Us</h3>
+        </div>
+        <div class="row justify-content-center ">
+            {% for soc in social %}
+            <a href="{{soc.link_address}}" class="col-lg-5 mt-3 w-30 text-white text-decoration-none text-center mr-1" style=" background: {{soc.background}}; border-radius: 5px;">
+                <img class = 'image mr-2' src = '{{soc.icon.url}}' alt = '!!!!!!!!!!!' width = '20px' ><small>{{soc.social_name}}</small>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Social Follow End -->
+
+    <!-- AddPost Start --> 
+    <div class="pb-3">
+    </div>
+    <!-- AddPost End -->
+
+    <!-- Tags Start -->
+    <div class="pb-3">
+        <div class="bg-light py-2 px-4 mb-3">
+            <h3 class="m-0">Tags</h3>
+        </div>
+        <div class="d-flex flex-wrap m-n1">
+            {% for tag in tags_all %}
+            <a href="{% url 'show_tags_id' tag.id %}" class="btn btn-sm btn-outline-secondary m-1">{{tag}}</a>
+            {% endfor %}
+        </div>
+    </div> 
+    <!-- Tags End -->
+</div>
